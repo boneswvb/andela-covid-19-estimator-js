@@ -13,6 +13,7 @@ const mydata = {
     totalHospitalBeds: 1380614
   },
   impact: {
+    periodType: "",
     currentlyInfected: 0,
     infectionsByRequestedTime: 0,
     severeCasesByRequestedTime: 0,
@@ -22,6 +23,7 @@ const mydata = {
     dollarsInFlight: 0
   },
   severeImpact: {
+    periodType: "",
     currentlyInfected: 1,
     infectionsByRequestedTime: 0,
     severeCasesByRequestedTime: 0,
@@ -69,9 +71,15 @@ const covid19ImpactEstimator = (data) => {
     return (calSerInfectionsByRequestedTime);
   };
 
-  const assignperiodType = (adata) => {
-    const { periodType } = adata.periodType;
-    return (periodType);
+  const assignPeriodType = (adata) => {
+    const dwmperiodType = adata.data.periodType;
+    console.log(adata)
+    return (dwmperiodType);
+  };
+
+  const assignSeverePeriodType = (adata) => {
+    const dwmSevereperiodType = adata.data.periodType;
+    return (dwmSevereperiodType);
   };
 
   mydata.impact.currentlyInfected = calculateImpactCurrentlyInfected(data);
@@ -79,7 +87,8 @@ const covid19ImpactEstimator = (data) => {
   mydata.impact.infectionsByRequestedTime = calculateImpactinfectionsByRequestedTime(data);
   mydata.severeImpact
     .infectionsByRequestedTime = calculateSevereImpactinfectionsByRequestedTime(data);
-  mydata.periodType = assignperiodType(data);
+  mydata.impact.periodType = assignPeriodType(data);
+  mydata.severeImpact.periodType = assignSeverePeriodType(data);
 };
 // covid19ImpactEstimator(mydata);
 //  console.log("mydata", mydata)
