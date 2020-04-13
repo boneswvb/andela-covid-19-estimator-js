@@ -69,12 +69,17 @@ const covid19ImpactEstimator = (data) => {
     return (calSerInfectionsByRequestedTime);
   };
 
+  const assignperiodType = (data) => {
+    const periodType = data.periodType
+    return (periodType);
+  }
+
   mydata.impact.currentlyInfected = calculateImpactCurrentlyInfected(data);
   mydata.severeImpact.currentlyInfected = calculateSevereImpactCurrentlyInfected(data);
   mydata.impact.infectionsByRequestedTime = calculateImpactinfectionsByRequestedTime(data);
   mydata.severeImpact
     .infectionsByRequestedTime = calculateSevereImpactinfectionsByRequestedTime(data);
-  periodType = data.periodType;
+  mydata.periodType = assignperiodType(data);
 };
 // covid19ImpactEstimator(mydata);
 //  console.log("mydata", mydata)
