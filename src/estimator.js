@@ -13,7 +13,7 @@ const mydata = {
     totalHospitalBeds: 1380614
   },
   data: {
-    periodType: '',
+    periodType: ''
   },
   impact: {
     currentlyInfected: 0,
