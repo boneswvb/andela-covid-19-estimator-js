@@ -36,18 +36,18 @@ const mydata = {
 };
 
 const covid19ImpactEstimator = (data) => {
-  const calculateTimeToElapse = (dwmdata) => {
-    let elapseTime = 0;
-    if (data.adata.periodType === 'days') {
-      elapseTime = dwmdata.adata.timeToElapse;
-    } else if (data.adata.periodType === 'weeks') {
-      elapseTime = dwmdata.adata.timeToElapse * 7;
-    } else if (data.adata.periodType === 'months') {
-      elapseTime = dwmdata.adata.timeToElapse * 30;
-    }
-    return elapseTime;
-  };
-  calculateTimeToElapse(data);
+  // const calculateTimeToElapse = (dwmdata) => {
+  //   let elapseTime = 0;
+  //   if (data.adata.periodType === 'days') {
+  //     elapseTime = dwmdata.adata.timeToElapse;
+  //   } else if (data.adata.periodType === 'weeks') {
+  //     elapseTime = dwmdata.adata.timeToElapse * 7;
+  //   } else if (data.adata.periodType === 'months') {
+  //     elapseTime = dwmdata.adata.timeToElapse * 30;
+  //   }
+  //   return elapseTime;
+  // };
+  // calculateTimeToElapse(data);
 
   // const calculateImpactCurrentlyInfected = (idata) => {
   //   const calCurrentlyInfected = idata.adata.reportedCases * 10 * calculateTimeToElapse(data);
@@ -74,16 +74,15 @@ const covid19ImpactEstimator = (data) => {
 
   const assignPeriodType = (ddata) => {
     const dwmperiodType = ddata.adata.periodType;
-    // console.log(ddata)
     return (dwmperiodType);
   };
-  mydata.impact.currentlyInfected = calculateImpactCurrentlyInfected(data);
-  mydata.severeImpact.currentlyInfected = calculateSevereImpactCurrentlyInfected(data);
-  mydata.impact.infectionsByRequestedTime = calculateImpactinfectionsByRequestedTime(data);
-  mydata.severeImpact
-    .infectionsByRequestedTime = calculateSevereImpactinfectionsByRequestedTime(data);
+  // mydata.impact.currentlyInfected = calculateImpactCurrentlyInfected(data);
+  // mydata.severeImpact.currentlyInfected = calculateSevereImpactCurrentlyInfected(data);
+  // mydata.impact.infectionsByRequestedTime = calculateImpactinfectionsByRequestedTime(data);
+  // mydata.severeImpact
+  //   .infectionsByRequestedTime = calculateSevereImpactinfectionsByRequestedTime(data);
   mydata.data.periodType = assignPeriodType(data);
 };
-covid19ImpactEstimator(mydata);
- console.log("mydata", mydata)
-// export default covid19ImpactEstimator;
+// covid19ImpactEstimator(mydata);
+//  console.log("mydata", mydata)
+export default covid19ImpactEstimator;
