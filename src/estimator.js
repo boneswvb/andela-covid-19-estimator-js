@@ -55,8 +55,8 @@ const covid19ImpactEstimator = (data) => {
     severeImpact
   };
 };
-covid19ImpactEstimator(mydata.adata);
-// export default covid19ImpactEstimator;
+// covid19ImpactEstimator(mydata.adata);
+export default covid19ImpactEstimator;
 
   // calculateSevereImpactsevereCasesByRequestedTime(data);
   // const calculateImpacthospitalBedsByRequestedTime = (idata) => {
