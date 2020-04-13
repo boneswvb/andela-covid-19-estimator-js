@@ -13,7 +13,7 @@ const mydata = {
     totalHospitalBeds: 1380614
   },
   impact: {
-    periodType: "",
+    periodType: '',
     currentlyInfected: 0,
     infectionsByRequestedTime: 0,
     severeCasesByRequestedTime: 0,
@@ -23,7 +23,7 @@ const mydata = {
     dollarsInFlight: 0
   },
   severeImpact: {
-    periodType: "",
+    periodType: '',
     currentlyInfected: 1,
     infectionsByRequestedTime: 0,
     severeCasesByRequestedTime: 0,
@@ -73,7 +73,6 @@ const covid19ImpactEstimator = (data) => {
 
   const assignPeriodType = (adata) => {
     const dwmperiodType = adata.data.periodType;
-    console.log(adata)
     return (dwmperiodType);
   };
 
