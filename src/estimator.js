@@ -49,28 +49,28 @@ const covid19ImpactEstimator = (data) => {
   };
   calculateTimeToElapse(data);
 
-  const calculateImpactCurrentlyInfected = (idata) => {
-    const calCurrentlyInfected = idata.adata.reportedCases * 10 * calculateTimeToElapse(data);
-    return (calCurrentlyInfected);
-  };
+  // const calculateImpactCurrentlyInfected = (idata) => {
+  //   const calCurrentlyInfected = idata.adata.reportedCases * 10 * calculateTimeToElapse(data);
+  //   return (calCurrentlyInfected);
+  // };
 
-  const calculateSevereImpactCurrentlyInfected = (sdata) => {
-    const calSerCurrentlyInfected = sdata.adata.reportedCases * 50 * calculateTimeToElapse(data);
-    return (calSerCurrentlyInfected);
-  };
+  // const calculateSevereImpactCurrentlyInfected = (sdata) => {
+  //   const calSerCurrentlyInfected = sdata.adata.reportedCases * 50 * calculateTimeToElapse(data);
+  //   return (calSerCurrentlyInfected);
+  // };
 
-  const calculateImpactinfectionsByRequestedTime = (idata) => {
-    const calInfectionsByRequestedTime = idata.impact
-      .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse(data) / 3);
-    return (calInfectionsByRequestedTime);
-  };
+  // const calculateImpactinfectionsByRequestedTime = (idata) => {
+  //   const calInfectionsByRequestedTime = idata.impact
+  //     .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse(data) / 3);
+  //   return (calInfectionsByRequestedTime);
+  // };
 
 
-  const calculateSevereImpactinfectionsByRequestedTime = (sdata) => {
-    const calSerInfectionsByRequestedTime = sdata.severeImpact
-      .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse(data) / 3);
-    return (calSerInfectionsByRequestedTime);
-  };
+  // const calculateSevereImpactinfectionsByRequestedTime = (sdata) => {
+  //   const calSerInfectionsByRequestedTime = sdata.severeImpact
+  //     .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse(data) / 3);
+  //   return (calSerInfectionsByRequestedTime);
+  // };
 
   const assignPeriodType = (ddata) => {
     const dwmperiodType = ddata.adata.periodType;
@@ -84,6 +84,6 @@ const covid19ImpactEstimator = (data) => {
     .infectionsByRequestedTime = calculateSevereImpactinfectionsByRequestedTime(data);
   mydata.data.periodType = assignPeriodType(data);
 };
-// covid19ImpactEstimator(mydata);
-//  console.log("mydata", mydata)
-export default covid19ImpactEstimator;
+covid19ImpactEstimator(mydata);
+ console.log("mydata", mydata)
+// export default covid19ImpactEstimator;
