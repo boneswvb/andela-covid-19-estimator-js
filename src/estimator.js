@@ -15,21 +15,31 @@ const mydata = {
 };
 
 const covid19ImpactEstimator = (data) => {
+  const input = data;
+  let impact = {};
+  const severeImpact = {};
   const { periodType, timeToElapse } = data;
   const calculateTimeToElapse = () => {
     let elapseTime = 0;
+    let result = 0;
     if (periodType === 'days') {
       elapseTime = timeToElapse;
     } else if (periodType === 'weeks') {
       elapseTime = timeToElapse * 7;
     } else if (periodType === 'months') {
       elapseTime = timeToElapse * 30;
-    }
-    return elapseTime;
+    };
+    return (elapseTime);
   };
-  calculateTimeToElapse(periodType, timeToElapse);
+  calculateTimeToElapse();
+  impact.currentlyInfected = input
+    .reportedCases * 10 * calculateTimeToElapse();
+  severeImpact.currentlyInfected = input
+    .reportedCases * 50 * calculateTimeToElapse();
+  impact.infectionsByRequestedTime = impact
+    .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse() / 3);
+  severeImpact.infectionsByRequestedTime = severeImpact
+    .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse(data) / 3);
 };
-
-covid19ImpactEstimator(mydata.adata);
-
+// covid19ImpactEstimator(mydata.adata);
 export default covid19ImpactEstimator;
