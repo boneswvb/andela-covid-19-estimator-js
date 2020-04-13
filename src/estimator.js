@@ -70,7 +70,7 @@ const covid19ImpactEstimator = (data) => {
   };
 
   const assignperiodType = (adata) => {
-    const {periodType} = adata.periodType;
+    const { periodType } = adata.periodType;
     return (periodType);
   };
 
