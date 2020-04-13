@@ -38,6 +38,13 @@ const covid19ImpactEstimator = (data) => {
     .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse() / 3);
   severeImpact.infectionsByRequestedTime = severeImpact
     .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse(data) / 3);
+    // console.log('impact', impact)
+    // console.log('severeImpact', severeImpact)
+    return {
+      data,
+      impact,
+      severeImpact
+    }
 };
 // covid19ImpactEstimator(mydata.adata);
 export default covid19ImpactEstimator;
