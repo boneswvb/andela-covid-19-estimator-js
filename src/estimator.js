@@ -15,7 +15,7 @@ const mydata = {
 };
 
 const covid19ImpactEstimator = (data) => {
-  const { periodType, timeToElapse } = data;  
+  const { periodType, timeToElapse } = data;
   const calculateTimeToElapse = () => {
     let elapseTime = 0;
     if (periodType === 'days') {
