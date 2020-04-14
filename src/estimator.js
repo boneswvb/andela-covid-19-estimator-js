@@ -1,18 +1,18 @@
-const mydata = {
-  adata: {
-    region: {
-      name: 'Africa',
-      avgAge: 19.7,
-      avgDailyIncomeInUSD: 5,
-      avgDailyIncomePopulation: 0.71
-    },
-    periodType: 'days',
-    timeToElapse: 10,
-    reportedCases: 674,
-    population: 66622705,
-    totalHospitalBeds: 1380614
-  }
-};
+// const mydata = {
+//   adata: {
+//     region: {
+//       name: 'Africa',
+//       avgAge: 19.7,
+//       avgDailyIncomeInUSD: 5,
+//       avgDailyIncomePopulation: 0.71
+//     },
+//     periodType: 'days',
+//     timeToElapse: 10,
+//     reportedCases: 674,
+//     population: 66622705,
+//     totalHospitalBeds: 1380614
+//   }
+// };
 const covid19ImpactEstimator = (data) => {
   // const input = data;
   const impact = {};
@@ -45,18 +45,18 @@ const covid19ImpactEstimator = (data) => {
     .infectionsByRequestedTime);
   severeImpact.severeCasesByRequestedTime = Math.floor(0.15 * severeImpact
     .infectionsByRequestedTime);
-  impact.hospitalBedsByRequestedTime = Math.trunk((35 / 100) * totalHospitalBeds) - impact
-    .severeCasesByRequestedTime;
-  severeImpact
-    .hospitalBedsByRequestedTime = Math.trunk((35 / 100) * totalHospitalBeds) - severeImpact
-      .severeCasesByRequestedTime;
-  console.log('impact', impact)
-  console.log('severeImpact', severeImpact)
+  // impact.hospitalBedsByRequestedTime = Math.trunk((35 / 100) * totalHospitalBeds) - impact
+  //   .severeCasesByRequestedTime;
+  // severeImpact
+  //   .hospitalBedsByRequestedTime = Math.trunk((35 / 100) * totalHospitalBeds) - severeImpact
+  //     .severeCasesByRequestedTime;
+  // console.log('impact', impact)
+  // console.log('severeImpact', severeImpact)
   return {
     data,
     impact,
     severeImpact
   };
 };
-covid19ImpactEstimator(mydata.adata);
-// export default covid19ImpactEstimator;
+// covid19ImpactEstimator(mydata.adata);
+export default covid19ImpactEstimator;
