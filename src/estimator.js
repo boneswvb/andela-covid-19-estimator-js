@@ -46,8 +46,8 @@ const covid19ImpactEstimator = (data) => {
     .severeCasesByRequestedTime;
   severeImpact
     .hospitalBedsByRequestedTime = Math.floor((35 / 100) * totalHospitalBeds) - severeImpact
-    .severeCasesByRequestedTime;
-  const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = data;
+      .severeCasesByRequestedTime;
+  // const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = data;
   // console.log('impact', impact)
   // console.log('severeImpact', severeImpact)
   return {
