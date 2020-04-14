@@ -17,11 +17,11 @@ const covid19ImpactEstimator = (data) => {
   // const input = data;
   const impact = {};
   const severeImpact = {};
-  const { 
-    periodType, 
+  const {
+    periodType,
     timeToElapse, 
-    totalHospitalBeds, 
-    reportedCases 
+    totalHospitalBeds,
+    reportedCases
   } = data;
   const calculateTimeToElapse = () => {
     let elapseTime = 0;
@@ -49,14 +49,14 @@ const covid19ImpactEstimator = (data) => {
     const impactAvailableBeds = (35 / 100) * totalHospitalBeds - impact
       .severeCasesByRequestedTime;
     return (Math.trunc(impactAvailableBeds));
-  }
+  };
   impact.hospitalBedsByRequestedTime = impactHospitalBeds(data);
   const severeHospitalBeds = () => {
     const SevereImpactAvailableBeds = (35 / 100) * totalHospitalBeds - severeImpact
       .severeCasesByRequestedTime;
-    return (Math.trunc(SevereImpactAvailableBeds))
-  }
-  severeImpact.hospitalBedsByRequestedTime = severeHospitalBeds(data)
+    return (Math.trunc(SevereImpactAvailableBeds));
+  };
+  severeImpact.hospitalBedsByRequestedTime = severeHospitalBeds(data);
   // console.log('impact', impact)
   // console.log('severeImpact', severeImpact)
   return {
