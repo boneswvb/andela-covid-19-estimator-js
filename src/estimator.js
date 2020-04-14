@@ -67,8 +67,10 @@ const covid19ImpactEstimator = (data) => {
     .infectionsByRequestedTime);
   severeImpact.casesForVentilatorsByRequestedTime = Math.floor(0.02 * severeImpact
     .infectionsByRequestedTime);
-  impact.dollarsInFlight = Math
-    .floor((impact.infectionsByRequestedTime * avgDailyIncomePopulation * avgDailyIncomeInUSD) / 30);
+  impact.dollarsInFlight = Math.floor(
+      (
+        impact.infectionsByRequestedTime * avgDailyIncomePopulation * avgDailyIncomeInUSD
+      ) / 30);
   severeImpact.dollarsInFlight = Math
     .floor((severeImpact.infectionsByRequestedTime * avgDailyIncomePopulation * avgDailyIncomeInUSD) / 30);
   // console.log('impact', impact)
