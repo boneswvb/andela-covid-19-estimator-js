@@ -14,15 +14,19 @@
 //   }
 // };
 const covid19ImpactEstimator = (data) => {
-  // const input = data;
   const impact = {};
   const severeImpact = {};
   const {
     periodType,
     timeToElapse,
     totalHospitalBeds,
-    reportedCases
+    reportedCases,
+    population
   } = data;
+  const {
+    avgDailyIncomePopulation,
+    avgDailyIncomeInUSD
+  } = data.region;
   const calculateTimeToElapse = () => {
     let elapseTime = 0;
     if (periodType === 'days') {
@@ -57,6 +61,17 @@ const covid19ImpactEstimator = (data) => {
     return (Math.trunc(SevereImpactAvailableBeds));
   };
   severeImpact.hospitalBedsByRequestedTime = severeHospitalBeds(data);
+  impact.casesForICUByRequestedTime = Math.floor(0.05 * impact.infectionsByRequestedTime);
+  severeImpact.casesForICUByRequestedTime = Math.floor(0.05 * severeImpact
+    .infectionsByRequestedTime);
+  impact.casesForVentilatorsByRequestedTime = Math.floor(0.02 * impact
+    .infectionsByRequestedTime);
+  severeImpact.casesForVentilatorsByRequestedTime = Math.floor(0.02 * severeImpact
+    .infectionsByRequestedTime);
+  impact.dollarsInFlight = Math
+    .floor(((population * avgDailyIncomePopulation) * avgDailyIncomeInUSD) * 30);
+  severeImpact.dollarsInFlight = Math
+    .floor(((population * avgDailyIncomePopulation) * avgDailyIncomeInUSD) * 30);
   // console.log('impact', impact)
   // console.log('severeImpact', severeImpact)
   return {
