@@ -38,14 +38,14 @@ const covid19ImpactEstimator = (data) => {
     .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse() / 3);
   severeImpact.infectionsByRequestedTime = severeImpact
     .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse(data) / 3);
-  impact.severeCasesByRequestedTime = Math.trunk(0.15 * impact
+  impact.severeCasesByRequestedTime = Math.floor(0.15 * impact
     .infectionsByRequestedTime);
-  severeImpact.severeCasesByRequestedTime = Math.trunk(0.15 * severeImpact
+  severeImpact.severeCasesByRequestedTime = Math.floor(0.15 * severeImpact
     .infectionsByRequestedTime);
-  impact.hospitalBedsByRequestedTime = Math.trunk((35 / 100) * totalHospitalBeds) - impact
+  impact.hospitalBedsByRequestedTime = Math.floor((35 / 100) * totalHospitalBeds) - impact
     .severeCasesByRequestedTime;
   severeImpact
-    .hospitalBedsByRequestedTime = Math.trunk((35 / 100) * totalHospitalBeds) - severeImpact
+    .hospitalBedsByRequestedTime = Math.floor((35 / 100) * totalHospitalBeds) - severeImpact
       .severeCasesByRequestedTime;
   // const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = data;
   // console.log('impact', impact)
