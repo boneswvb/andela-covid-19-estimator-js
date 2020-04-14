@@ -14,10 +14,10 @@
 //   }
 // };
 const covid19ImpactEstimator = (data) => {
-  const input = data;
+  // const input = data;
   const impact = {};
   const severeImpact = {};
-  const { periodType, timeToElapse, totalHospitalBeds } = data;
+  const { periodType, timeToElapse, totalHospitalBeds, reportedCases } = data;
   const calculateTimeToElapse = () => {
     let elapseTime = 0;
     if (periodType === 'days') {
@@ -30,10 +30,8 @@ const covid19ImpactEstimator = (data) => {
     return (elapseTime);
   };
   calculateTimeToElapse();
-  impact.currentlyInfected = input
-    .reportedCases * 10;
-  severeImpact.currentlyInfected = input
-    .reportedCases * 50;
+  impact.currentlyInfected = reportedCases * 10;
+  severeImpact.currentlyInfected = reportedCases * 50;
   impact.infectionsByRequestedTime = impact
     .currentlyInfected * 2 ** Math.floor(calculateTimeToElapse() / 3);
   severeImpact.infectionsByRequestedTime = severeImpact
